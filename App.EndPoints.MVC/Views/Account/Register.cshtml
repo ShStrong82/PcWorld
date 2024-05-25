@@ -1,0 +1,84 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="ShStrong" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/assets/img/Favicon_Logo.png"
+          rel="icon"
+          sizes="32x32"
+          type="image/png" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/assets/css/register-style.css" />
+</head>
+<body>
+    <div class="signup-box">
+        <form id="form" asp-controller="Account" asp-action="Register" method="post">
+            <h2>ثبت نام</h2>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="نام" id="firstName" asp-for="FirstName" required />
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="نام خانوادگی" id="lastName" asp-for="LastName" required />
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" placeholder="ایمیل" id="username" asp-for="Email" required />
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-phone"></i></span>
+                <input type="tel" placeholder="شماره همراه" id="phone" asp-for="mobile" required />
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fa fa-lock"></i></span>
+                <input type="password" placeholder="رمز عبور" id="password" asp-for="Password" required/>
+                <span class="eye">
+                    <i class="fa fa-eye" id="eyeIcon" onclick="eyeIconChange()"></i>
+                </span>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fa fa-lock"></i></span>
+                <input type="password"
+                       placeholder="رمز عبور مجدد"
+                       id="confirmPassword"
+                       asp-for="ConfirmPassword"
+                       required />
+                <span class="eye">
+                    <i class="fa fa-eye"
+                       id="confirmPasseyeIcon"
+                       onclick="eyeIconChange1()"></i>
+                </span>
+            </div>
+
+            <button type="submit">ثبت نام</button>
+
+            <div class="signin-link">
+                <p>حساب کاربری دارید؟ <a asp-controller="Account" asp-action="Login">وارد شدن</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js"></script>
+    <script type="text/javascript"
+            src="~/assets/js/register-script.js"></script>
+</body>
+</html>
+

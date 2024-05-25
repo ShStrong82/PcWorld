@@ -1,0 +1,185 @@
+﻿@model List<ProductDto>?
+
+@{
+    ViewData["Title"] = "فروشگاه اینترنتی دنیای کامپیوتر";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="ShStrong" />
+    <link href="./assets/img/Favicon_Logo.png"
+          rel="icon"
+          type="image/png"
+          sizes="32x32" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- fontawesome link  -->
+    <link rel="stylesheet" href="~/assets/icons/fontawesome/css/all.css" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet"
+          href="~/assets/slides/swiper/css/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="~/assets/css/main-style.css" />
+</head>
+<body>
+    <!-- header section starts  -->
+
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <div class="nav-search-container">
+            <nav class="navbar">
+                <a class="nav-link" href="#home">خانه <i class="fas fa-home"></i></a>
+                <a asp-controller="Account" asp-action="Login" class="nav-link" id="login-btn">
+                    ورود | ثبت نام <i class="fas fa-sign-in-alt" id="signin-btn"></i>
+                </a>
+                <!-- <a class="nav-link" href="#products"
+                  >محصولات <i class="fa-solid fa-box"></i
+                ></a> -->
+                <!-- categories list -->
+                <div class="dropdown" id="dropdown">
+                    <li id="productsDropDown">
+                        <a class="dropBtn">
+                            دسته بندی کالا ها <i class="fa fa-bars"></i>
+                        </a>
+                        <!-- تولید دسته بر اساس دیتابیس -->
+@*                         <div class="dropdown-content">
+                            <a href="#">کارت گرافیک</a>
+                            <a href="#">مادربرد</a>
+                        </div> *@
+                    </li>
+                </div>
+
+                <!-- ارجاع به لینک سبد خرید -->
+                <a class="nav-link" href="#">
+                    سبد خرید <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <a class="nav-link" href="#about">
+                    درباره ما <i class="fas fa-user-headset"></i>
+                </a>
+            </nav>
+
+            <!-- dark theme -->
+            <div class="darkbtn" onclick="toggleColor()">
+                <i class="fa-solid fa-sun-bright" id="darkbtnIcon"></i>
+            </div>
+
+            <!-- search box -->
+            <div class="search-wrapper">
+                <div class="searchbox">
+                    <input type="text" class="input" placeholder="جستجو..." />
+                    <div class="searchbtn">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- logo -->
+        <a asp-controller="Home" asp-action="index" class="logo">
+            <img src="./assets/img/PcWorld.png" alt="PcWorld" />
+        </a>
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- products -->
+    <!-- تولید به تعداد محصولات بر اساس دسته بندی -->
+    <!-- products section starts -->
+    <section class="products" id="products">
+        <!-- قالب نمایش productCategory -->
+        <!-- products show (format) starts -->
+        <!-- product category label -->
+        <!-- <div class="productCategoryLabel" id="productCategoryLabel">
+          <a href="#category-link"> -->
+        <!-- <img
+              src="#productCategory-img"
+              alt="productCategoryName"
+            />
+          </a> -->
+        <!-- productCategoryName -->
+        <!-- <p>انواع productCategoryName</p>
+        </div> -->
+        <!-- قالب نمایش هر محصول در productCategory -->
+        <!-- products in category by slider -->
+        <!-- Slider -->
+        <!-- <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            تولید به تعداد محصول
+            <div class="swiper-slide">
+              <img
+                src="product-img"
+                alt="productName"
+              />
+              <a href="#product-page">
+                <div class="description">
+                  <h3>productName</h3>
+                  <p>productPrice</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div> -->
+        <!-- products show (format) ends -->
+
+    </section>
+    <!-- products section ends -->
+    <!-- footer section  -->
+
+    <footer>
+        <section class="footer" id="about">
+            <div class="box-container">
+                <div class="box">
+                    <h3>درباره ما</h3>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+                        ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+                    </p>
+                </div>
+                <div class="box">
+                    <h3>دنبال کردن ما در</h3>
+                    <a href="#">instagram</a>
+                    <a href="#">linkedin</a>
+                </div>
+            </div>
+
+            <h1 class="credit">کلیه حقوق این وب سایت محفوظ می باشد.</h1>
+        </section>
+    </footer>
+
+    <!-- end footer -->
+    <!-- Swiper JS -->
+    <script src="~/assets/slides/swiper/js/swiper-bundle.min.js"></script>
+    <!-- custom js file link  -->
+    <script src="~/assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+@* <script>
+    //normalize price
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to format number with commas
+        function formatNumberWithCommas(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Get all elements with class 'price'
+        var priceElements = document.querySelectorAll('.price');
+
+        // Format and update the innerText of each price element
+        priceElements.forEach(function (element) {
+            var price = element.innerText;
+            element.innerText = formatNumberWithCommas(price);
+        });
+    });
+</script> *@

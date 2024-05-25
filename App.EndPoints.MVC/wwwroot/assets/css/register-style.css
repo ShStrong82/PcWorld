@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/Vazir/Vazir.woff") format("woff"),
+    url("../fonts/Vazir/Vazir.ttf") format("truetype"),
+    url("../fonts/Vazir/Vazir.woff2") format("woff2");
+}
+
+:root {
+  --blue: #3f50b5;
+  --red: #ef4338;
+  --navyBlue: #1d2733;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Vazir;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background: rgb(238,67,56);
+      background: linear-gradient(90deg, rgba(238,67,56,1) 0%, rgba(63,80,181,1) 100%); */
+  background-image: url("../img/bg-login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  backdrop-filter: blur(3px);
+}
+
+/* signup-box */
+.signup-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 720px;
+  background: rgba(51, 51, 51, 0.95);
+  border: 5px solid #fff;
+  border-radius: 60px;
+  transition: 0.5s;
+}
+.signup-box:hover {
+  border: 5px solid var(--blue);
+  box-shadow: 0 0 20px var(--blue), inset 0 0 20px var(--blue);
+  background: rgba(0, 0, 0, 0.95);
+}
+
+/* Title */
+h2 {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  padding: 0 0 20px;
+  transition: 0.5s;
+}
+.signup-box:hover h2 {
+  color: var(--blue);
+}
+
+/* Input boxes */
+.input-box {
+  position: relative;
+  top: -5px;
+  width: 320px;
+  margin: 30px 0;
+}
+.input-box input {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 50px;
+  font-size: 1em;
+  color: #fff;
+  padding: 0 0 0 10px;
+  transition: 0.5s;
+}
+.signup-box:hover .input-box input {
+  border: 2px solid var(--blue);
+  box-shadow: 0 0 10px var(--blue), inset 0 0 10px var(--blue);
+}
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.input-box .icon {
+  position: absolute;
+  left: 285px;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 52px;
+  transition: 0.5s;
+}
+.signup-box:hover .input-box .icon {
+  color: var(--blue);
+}
+.input-box .eye {
+  position: absolute;
+  font-size: 1.2em;
+  line-height: 52px;
+  left: 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.signup-box:hover .eye {
+  color: var(--blue);
+}
+
+/* Submit Button */
+button {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 19px;
+  color: #000;
+  font-weight: 500;
+  padding: 0 0 5px;
+  transition: 0.5s;
+}
+.signup-box:hover button {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 20px var(--blue);
+}
+
+/* Signin-link */
+.signin-link {
+  font-size: 0.9em;
+  text-align: center;
+  margin: 25px 0;
+}
+.signin-link p {
+  color: #fff;
+}
+.signin-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.5s;
+}
+.signup-box:hover .signin-link p a {
+  color: var(--blue);
+}
+.signin-link p a:hover {
+  text-decoration: underline;
+}
