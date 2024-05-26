@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check stored preference on page load
     if (localStorage.getItem('darkMode') === 'enabled') {
         enableDarkMode();
-    } else {
+    } else if (localStorage.getItem('darkMode') === 'disabled') {
         disableDarkMode();
+    } else {
+        // No stored preference, apply theme based on time
+        applyThemeBasedOnTime();
     }
 
     // Toggle dark mode on button click
@@ -47,7 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.remove("fa-moon");
         localStorage.setItem('darkMode', 'disabled');
     }
+
+    function applyThemeBasedOnTime() {
+        const now = new Date();
+        const hour = now.getHours();
+
+        if (hour >= 6 && hour < 18) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    }
 });
+
 
 //Swiper
 var swiper = new Swiper(".mySwiper", {
